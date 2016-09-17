@@ -206,7 +206,7 @@ function fish_right_prompt -d "Write out the right prompt of the syl20bnr-smook 
   #   X is the username
   #   Y is the hostname
   #set -l ps_where $colnormal(whoami)@(hostname|cut -d . -f 1)
-  set -l ruby_version $colnormal$colgreen(__syl20bnr-smook_unmerged_commit_count)$colornormal
+  set -l ruby_version $colgreen(__syl20bnr-smook_rbenv_ruby_version)$colornormal
 
   # Right Prompt
 
