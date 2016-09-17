@@ -4,6 +4,18 @@
 # Utils
 # ----------------------------------------------------------------------------
 
+set -g symbol_prompt "❯"
+
+# Change cursor shape
+# tmux   - "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+# Normal - "\<Esc>]50;CursorShape=1\x7"
+# smook@Lappy ~/Downloads> echo -e '"\ePtmux;\e\e]50;CursorShape=0\x7\e\\"'
+# smook@Lappy ~/Downloads> echo -e '"\ePtmux;\e\e]50;CursorShape=1\x7\e\\"'
+# smook@Lappy ~/Downloads> echo -e '"\ePtmux;\e\e]50;CursorShape=2\x7\e\\"'
+#"\033]12;#$budspencer_colors[5]\007" "\033]12;#$budspencer_colors[8]\007" "\033]12;#$budspencer_colors[9]\007"
+
+#set -U budspencer_cursors "\033]12;#(set_color green)\007"
+
 set -g __syl20bnr_smook_display_rprompt 1
 
 function toggle_right_prompt -d "Toggle the right prompt of the syl20bnr_smook theme"
@@ -213,4 +225,19 @@ function fish_right_prompt -d "Write out the right prompt of the syl20bnr_smook 
   if test $__syl20bnr_smook_display_rprompt -eq 1
     echo -n -s $ruby_version
   end
+
+  # Output VI Mode Indicator
+  if test "$fish_key_bindings" = "fish_vi_key_bindings"
+    switch $fish_bind_mode
+      case default
+        echo -e '"\ePtmux;\e\e]50;CursorShape=0\x7\e\\"'
+      case insert
+        echo -e '"\ePtmux;\e\e]50;CursorShape=1\x7\e\\"'
+      case replace-one
+        echo -e '"\ePtmux;\e\e]50;CursorShape=1\x7\e\\"'
+      case visual
+        echo -e '"\ePtmux;\e\e]50;CursorShape=2\x7\e\\"'
+    end
+  end
+
 end
