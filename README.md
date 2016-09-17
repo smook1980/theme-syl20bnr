@@ -1,4 +1,4 @@
-# syl20bnr theme
+# syl20bnr-smook theme
 
 A semi-compact oh-my-fish theme with [nice support for git](#git).
 
@@ -34,13 +34,13 @@ and `/` respectively without the current directory and depth.
 #### Examples
 
 In home directory:
-![home](https://raw.githubusercontent.com/syl20bnr/oh-my-fish-theme-syl20bnr/master/screenshots/prompt_fish-syl20bnr-home2.png)
+![home](https://raw.githubusercontent.com/syl20bnr-smook/oh-my-fish-theme-syl20bnr-smook/master/screenshots/prompt_fish-syl20bnr-smook-home2.png)
 
 Inside a directory in home:
-![inside_home](https://raw.githubusercontent.com/syl20bnr/oh-my-fish-theme-syl20bnr/master/screenshots/prompt_fish-syl20bnr-inside-home.png)
+![inside_home](https://raw.githubusercontent.com/syl20bnr-smook/oh-my-fish-theme-syl20bnr-smook/master/screenshots/prompt_fish-syl20bnr-smook-inside-home.png)
 
 Outside the home directory:
-![outside_home](https://raw.githubusercontent.com/syl20bnr/oh-my-fish-theme-syl20bnr/master/screenshots/prompt_fish-syl20bnr-outside-home.png)
+![outside_home](https://raw.githubusercontent.com/syl20bnr-smook/oh-my-fish-theme-syl20bnr-smook/master/screenshots/prompt_fish-syl20bnr-smook-outside-home.png)
 
 ### git
 
@@ -71,23 +71,23 @@ upstream branch as been fetched.
 
 Dirty (changes not committed):
 
-![dirty](https://raw.githubusercontent.com/syl20bnr/oh-my-fish-theme-syl20bnr/master/screenshots/prompt_fish-syl20bnr-git-dirty2.png)
+![dirty](https://raw.githubusercontent.com/syl20bnr-smook/oh-my-fish-theme-syl20bnr-smook/master/screenshots/prompt_fish-syl20bnr-smook-git-dirty2.png)
 
 Unpushed commits:
 
-![unpushed_commits](https://raw.githubusercontent.com/syl20bnr/oh-my-fish-theme-syl20bnr/master/screenshots/prompt_fish-syl20bnr-git-unpushed.png)
+![unpushed_commits](https://raw.githubusercontent.com/syl20bnr-smook/oh-my-fish-theme-syl20bnr-smook/master/screenshots/prompt_fish-syl20bnr-smook-git-unpushed.png)
 
 Unmerged commits:
 
-![unmerged_commits](https://raw.githubusercontent.com/syl20bnr/oh-my-fish-theme-syl20bnr/master/screenshots/prompt_fish-syl20bnr-git-unmerged.png)
+![unmerged_commits](https://raw.githubusercontent.com/syl20bnr-smook/oh-my-fish-theme-syl20bnr-smook/master/screenshots/prompt_fish-syl20bnr-smook-git-unmerged.png)
 
 Both unpushed and unmerged commits:
 
-![unmerged_commits](https://raw.githubusercontent.com/syl20bnr/oh-my-fish-theme-syl20bnr/master/screenshots/prompt_fish-syl20bnr-git-unpushed_unmerged.png)
+![unmerged_commits](https://raw.githubusercontent.com/syl20bnr-smook/oh-my-fish-theme-syl20bnr-smook/master/screenshots/prompt_fish-syl20bnr-smook-git-unpushed_unmerged.png)
 
 In a sub-directory of the repository:
 
-![repo_subdir](https://raw.githubusercontent.com/syl20bnr/oh-my-fish-theme-syl20bnr/master/screenshots/prompt_fish-syl20bnr-git-subdir2.png)
+![repo_subdir](https://raw.githubusercontent.com/syl20bnr-smook/oh-my-fish-theme-syl20bnr-smook/master/screenshots/prompt_fish-syl20bnr-smook-git-subdir2.png)
 
 ### vi-mode
 
