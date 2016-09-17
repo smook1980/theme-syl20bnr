@@ -1,46 +1,46 @@
-# name: syl20bnr-smook
+# name: syl20bnr_smook
 
 # ----------------------------------------------------------------------------
 # Utils
 # ----------------------------------------------------------------------------
 
-set -g __syl20bnr-smook_display_rprompt 1
+set -g __syl20bnr_smook_display_rprompt 1
 
-function toggle_right_prompt -d "Toggle the right prompt of the syl20bnr-smook theme"
-  if test $__syl20bnr-smook_display_rprompt -eq 0
+function toggle_right_prompt -d "Toggle the right prompt of the syl20bnr_smook theme"
+  if test $__syl20bnr_smook_display_rprompt -eq 0
     echo "enable right prompt"
-    set __syl20bnr-smook_display_rprompt 1
+    set __syl20bnr_smook_display_rprompt 1
   else
     echo "disable right prompt"
-    set __syl20bnr-smook_display_rprompt 0
+    set __syl20bnr_smook_display_rprompt 0
   end
 end
 
-function __syl20bnr-smook_git_branch_name -d "Return the current branch name"
+function __syl20bnr_smook_git_branch_name -d "Return the current branch name"
   echo (command git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
 end
 
-function __syl20bnr-smook_git_repo_name -d "Return the current repository name"
+function __syl20bnr_smook_git_repo_name -d "Return the current repository name"
   echo (command basename (git rev-parse --show-toplevel ^/dev/null))
 end
 
-function __syl20bnr-smook_git_repo_base -d "Return the current repository name"
+function __syl20bnr_smook_git_repo_base -d "Return the current repository name"
   echo (command git rev-parse --show-toplevel ^/dev/null)
 end
 
-function __syl20bnr-smook_git_status -d "git status command"
+function __syl20bnr_smook_git_status -d "git status command"
   git status -b -s --ignore-submodules=dirty
 end
 
-function __syl20bnr-smook_unpushed_commit_count -d "Return the number of unpushed commits"
+function __syl20bnr_smook_unpushed_commit_count -d "Return the number of unpushed commits"
   echo $argv[1] | grep -E -o "ahead\ [0-9]+" | awk '{print $2}'
 end
 
-function __syl20bnr-smook_unmerged_commit_count -d "Return the number of unmerged commits"
+function __syl20bnr_smook_unmerged_commit_count -d "Return the number of unmerged commits"
   echo $argv[1] | grep -E -o "behind\ [0-9]+" | awk '{print $2}'
 end
 
-function __syl20bnr-smook_rbenv_ruby_version -d "Return the number of unmerged commits"
+function __syl20bnr_smook_rbenv_ruby_version -d "Return the number of unmerged commits"
   rbenv version-name
 end
 
@@ -54,7 +54,7 @@ alias trp toggle_right_prompt
 # Prompts
 # ----------------------------------------------------------------------------
 
-function fish_prompt -d "Write out the left prompt of the syl20bnr-smook theme"
+function fish_prompt -d "Write out the left prompt of the syl20bnr_smook theme"
   set -l last_status $status
   set -l basedir_name (basename (prompt_pwd))
 
@@ -90,16 +90,16 @@ function fish_prompt -d "Write out the left prompt of the syl20bnr-smook theme"
   #   green is up-to-date.
   # If P = Z then P(C) is not displayed
   set -l ps_git ""
-  set -l git_branch_name (__syl20bnr-smook_git_branch_name)
+  set -l git_branch_name (__syl20bnr_smook_git_branch_name)
   if test -n "$git_branch_name"
-    set -l git_repo_name (__syl20bnr-smook_git_repo_name)
+    set -l git_repo_name (__syl20bnr_smook_git_repo_name)
     set -l git_info ""
-    set -l git_status (__syl20bnr-smook_git_status)
+    set -l git_status (__syl20bnr_smook_git_status)
     if echo $git_status | grep ahead > /dev/null
-      set git_info "["$colbgreen"↑"(__syl20bnr-smook_unpushed_commit_count $git_status)$colnormal"]"
+      set git_info "["$colbgreen"↑"(__syl20bnr_smook_unpushed_commit_count $git_status)$colnormal"]"
     end
     if echo $git_status | grep behind > /dev/null
-      set git_info "$git_info""["$colbred"↓"(__syl20bnr-smook_unmerged_commit_count $git_status)$colnormal"]"
+      set git_info "$git_info""["$colbred"↓"(__syl20bnr_smook_unmerged_commit_count $git_status)$colnormal"]"
     end
     set -l colbranch $colbgreen
     if echo $git_status | grep -E "\s\?\?\s|\sM\s|\sD\s" > /dev/null
@@ -107,7 +107,7 @@ function fish_prompt -d "Write out the left prompt of the syl20bnr-smook theme"
     end
     set ps_git $colbwhite"git:"$colbcyan$git_branch_name$git_info$colnormal"@"$colbranch$git_repo_name
     if test "$basedir_name" != "$git_repo_name"
-        set -l basedir_depth (echo (__syl20bnr-smook_git_repo_base) | sed "s/\// /g" | wc -w)
+        set -l basedir_depth (echo (__syl20bnr_smook_git_repo_base) | sed "s/\// /g" | wc -w)
         set -l depth (echo (pwd) | sed "s/\// /g" | wc -w)
         set depth (math $depth - $basedir_depth)
         set ps_git $ps_git$colnormal":"$colbwhite$basedir_name$colnormal"("$depth")"
@@ -197,7 +197,7 @@ function fish_prompt -d "Write out the left prompt of the syl20bnr-smook theme"
 end
 
 
-function fish_right_prompt -d "Write out the right prompt of the syl20bnr-smook theme"
+function fish_right_prompt -d "Write out the right prompt of the syl20bnr_smook theme"
   set -l colnormal (set_color normal)
 
   # Segments
@@ -206,11 +206,11 @@ function fish_right_prompt -d "Write out the right prompt of the syl20bnr-smook 
   #   X is the username
   #   Y is the hostname
   #set -l ps_where $colnormal(whoami)@(hostname|cut -d . -f 1)
-  set -l ruby_version $colgreen(__syl20bnr-smook_rbenv_ruby_version)$colornormal
+  set -l ruby_version $colgreen(__syl20bnr_smook_rbenv_ruby_version)$colornormal
 
   # Right Prompt
 
-  if test $__syl20bnr-smook_display_rprompt -eq 1
+  if test $__syl20bnr_smook_display_rprompt -eq 1
     echo -n -s $ruby_version
   end
 end
